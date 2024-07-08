@@ -12,8 +12,7 @@ function createTaskCard(task) {
 var taskTitle = $("div").text(task.Title)
 var taskDueDate = $("div").text(task.DueDate)
 var taskDescription = $("div").text(task.Description)
-var deleteButton = $("button").text("Delete").addClass('btn btn-danger')
-deleteButton.on('click',handleDeleteTask   )
+
 }
 
 // Todo: create a function to render the task list and make cards draggable
@@ -39,11 +38,15 @@ for (let i = 0; i < taskList.length; i++) {
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
+    var addTaskButton = $("button").text("add").addClass('btn btn-danger')
+    addTaskButton.on('click', handleAddTask)
 
 }
 
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event){
+    var deleteButton = $("button").text("Delete").addClass('btn btn-danger')
+deleteButton.on('click',handleDeleteTask)
 
 }
 
