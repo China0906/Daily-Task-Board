@@ -51,7 +51,26 @@ deleteButton.on('click',handleDeleteTask)
 }
 
 // Todo: create a function to handle dropping a task into a new status lane
-function handleDrop(event, ui) {
+
+function handleDrop(event, ui) 
+   
+    const projects = readProjectsFromStorage();
+  
+    
+    const taskId = ui.draggable[0].dataset.projectId;
+  
+    /
+    const newStatus = event.target.id;
+  
+    for (let project of projects) 
+      
+      if (project.id === taskId) {
+        project.status = newStatus;
+      }
+{$('.lane').droppable({
+    accept: '.draggable',
+    drop: handleDrop,
+  });
 
 }
 
