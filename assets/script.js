@@ -12,10 +12,15 @@ function generateTaskId() {
 
 // Todo: create a function to create a task card
 function createTaskCard(task) {
+  console.log(task)
 var taskTitle = $("div").text(task.Title)
 var taskDueDate = $("div").text(task.DueDate)
 var taskDescription = $("div").text(task.Description)
 
+let taskCard=$("div").addClass("card task_card draggable").attr("data-card-id", task.id)
+let taskHeader=$("div").addClass("card-header").text(task.title)
+let taskDescription=$("div").addClass("card-text").text(task.description)
+let taskDueDate=$("div").addClass("card-text").text(task.DueDate)
 }
 
 // Todo: create a function to render the task list and make cards draggable
@@ -28,6 +33,7 @@ function renderTaskList() {
       for (let i = 0; i < taskList.length; i++) {
         if (taskList[i].status === "to-do"){
          let todoCard = createTaskCard(taskList[i])
+        
          todoEl.append[todoCard]
         } else if (taskList[i].status === "inprogress"){
          let inprogressCard = createTaskCard(taskList[i])
@@ -47,16 +53,20 @@ function renderTaskList() {
 function handleAddTask(event){
   event.preventDefault()
   let taskTitle=$('#taskTitle').val()
-  let titleDescription=$('#titleDescription').val()
+  let description=$('#Description').val()
+  let taskDueDate=$('#taskDueDate').val()
 
   let taskDetails={
     title: taskTitle,
-    description: titleDescription,
+    description: description,
+    taskDueDate: taskDueDate,
     status: 'to-do'
   }
   taskList.push(taskDetails)
+  console.log (taskList)
 
 localStorage.setItem('tasks',JSON.stringify(taskList))
+renderTaskList()
     
 
 }
@@ -99,5 +109,9 @@ $('.lane').droppable({
   accept: '.draggable',
   drop: handleDrop,
 });
+$("#taskDueDate").datepicker({
+  changeMonth: true, 
+  changeYear: true,
+})
 
 });

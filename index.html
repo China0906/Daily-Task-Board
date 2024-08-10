@@ -33,7 +33,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form id="tasdetailsform"> 
+            <form id="taskdetailsform"> 
               
               <div class="mb-3">
                 <label for="taskTitle" class="form-label">Task Title</label>
@@ -41,11 +41,16 @@
                 
               </div>
               <div class="mb-3">
-                <label for="taskDescription" class="form-label">Task Description</label>
-                <input type="text" class="form-control" id="taskDescription">
+                <label for="Description" class="form-label">Task Description</label>
+                <input type="text" class="form-control" id="Description">
+              </div>
+
+              <div class="mb-3"> 
+                <label for="taskDueDate" class="form-label">Task Due Date</label>
+                <input autocomplete="off" type="text" class="form-control mb-3" id="taskDueDate" />
               </div>
               
-              <button type="submit"  class="btn btn-primary">Submit</button>
+              <button type="submit"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">Submit</button>
             </form>
           </div>
           <!-- <div class="modal-footer">
